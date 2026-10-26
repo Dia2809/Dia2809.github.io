@@ -1,22 +1,173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>My Website</title>
-   <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f3e3d3">
+<title>dia's little corner ♡</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Patrick+Hand&display=swap');
+  :root{
+    --paper:#fffaf3; --ink:#4a3b36; --beige:#f3e3d3; --deep:#b35f7e;
+    --pink:#f7c3d4; --rose:#fde7ee; --butter:#fff1d6; --peach:#f9e6dd;
+    --line:#e6d2c2; --soft:#a9766d;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:100%;height:100%;color:var(--ink)}
+  body{
+    background-color:var(--beige);
+    background-image:radial-gradient(#e3c9b4 1px,transparent 1px);
+    background-size:16px 16px;
+    font-family:Nunito,system-ui,sans-serif;
+    overflow:hidden;
+  }
+  a{color:#a8506d;text-decoration-thickness:2px;text-underline-offset:3px}
+  a:hover{color:#7d4b5e}
+  .desk{height:100svh;min-height:600px;display:grid;place-items:center;padding:22px}
+  .page{
+    width:min(1040px,100%);height:min(720px,calc(100svh - 44px));
+    min-height:560px;position:relative;background:var(--paper);
+    border:3px solid var(--ink);border-radius:17px;box-shadow:8px 8px 0 #d4a99a;
+    padding:22px;display:grid;grid-template-columns:245px 1fr 220px;gap:18px;
+  }
+  .tape{position:absolute;width:95px;height:25px;top:-11px;left:42%;background:#f7c3d4cc;transform:rotate(-3deg);border:1px solid #e39bb0}
+  .side,.middle,.right{min-width:0;min-height:0}
+  .side{display:flex;flex-direction:column;gap:12px}
+  .avatar{
+    background:#fbe3ea;border:2px solid var(--ink);border-radius:13px;height:195px;
+    display:grid;place-items:center;position:relative;overflow:hidden;
+  }
+  .avatar:before{content:"";position:absolute;width:145px;height:145px;border-radius:50%;background:#f7c9d8;top:24px}
+  .avatar .face{position:relative;font-size:90px;filter:drop-shadow(2px 3px 0 #c98a9c);transform:rotate(-5deg)}
+  .badge{position:absolute;right:10px;bottom:10px;background:var(--butter);border:2px solid var(--ink);border-radius:8px;padding:4px 8px;font-family:"Patrick Hand",cursive;font-size:17px;transform:rotate(4deg)}
+  .name{font-size:35px;line-height:.98;font-weight:900;letter-spacing:-1.5px;margin:1px 0 0}
+  .name span{color:#c9628a}
+  .hand{font-family:"Patrick Hand",cursive;font-size:19px}
+  .status{background:#fbe2ea;border:2px dashed #cc8fa4;border-radius:10px;padding:9px 11px;font-size:12px;line-height:1.45}
+  .littlelinks{display:flex;flex-wrap:wrap;gap:6px}
+  .pill{border:1.5px solid var(--ink);border-radius:8px;padding:5px 8px;font-size:11px;font-weight:800;background:white;text-decoration:none;box-shadow:2px 2px 0 var(--ink)}
+  .pill:nth-child(2){background:var(--butter)}.pill:nth-child(3){background:var(--peach)}
+  .middle{display:flex;flex-direction:column;gap:12px;overflow-y:auto;padding-right:6px;scrollbar-width:thin;scrollbar-color:#d9aebb transparent}
+  .middle > *{flex:0 0 auto}
+  .middle::-webkit-scrollbar{width:8px}
+  .middle::-webkit-scrollbar-thumb{background:#e2c0cb;border-radius:8px}
+  .hello{border-bottom:2px dotted var(--line);padding:0 0 12px}
+  h2{font-size:17px;margin:0 0 7px;font-weight:900}
+  .hello h2{font-size:26px;letter-spacing:-.8px;margin-bottom:4px}
+  p{font-size:13px;line-height:1.55;margin:5px 0}
+  .scribble{font-family:"Patrick Hand",cursive;font-size:19px;color:#a8707f}
+  .section{background:#fbf2e9;border:1.5px solid var(--line);border-radius:12px;padding:12px 13px}
+  .projects{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .project{background:white;border:1.5px solid var(--ink);border-radius:9px;padding:9px;min-height:79px;box-shadow:2px 2px 0 var(--ink)}
+  .project .emoji{font-size:20px;float:right;margin-left:4px}
+  .project strong{font-size:12px;display:block;margin-bottom:3px}
+  .project small{font-size:10px;line-height:1.35;display:block;color:#6d625c}
+  .project:nth-child(2){background:var(--rose)}.project:nth-child(3){background:var(--peach)}.project:nth-child(4){background:#fff6dd}
+  .right{display:flex;flex-direction:column;gap:12px;overflow-y:auto;padding-right:4px;scrollbar-width:thin;scrollbar-color:#d9aebb transparent}
+  .right > *{flex:0 0 auto}
+  .mini{border:2px solid var(--ink);border-radius:12px;padding:12px;background:var(--butter)}
+  .mini.pink{background:var(--rose)}.mini.blue{background:var(--peach)}
+  .mini h2{font-size:15px}
+  .tags{display:flex;flex-wrap:wrap;gap:5px}
+  .tag{font-size:10px;background:white;border:1px solid #c9a99b;border-radius:5px;padding:4px 6px}
+  .music{font-size:12px;line-height:1.7}
+  .music span{display:block}
+  .music a{color:inherit;text-decoration:none;border-bottom:1.5px dotted #cf93a8}
+  .music a:hover{color:#a8506d;border-bottom-style:solid}
+  .tiny{font-size:10px;color:#736861}
+  .footer{margin-top:auto;text-align:center;font-family:"Patrick Hand",cursive;font-size:16px;color:#a9766d}
+  .sparkle{position:absolute;font-size:24px;pointer-events:none}
+  .s1{top:35px;right:25px;color:#e79ab5}.s2{bottom:23px;left:47%;color:#e2b46a}.s3{top:50%;left:-12px;color:#c97a97}
+  @media(max-width:760px){
+    body{overflow:auto}
+    .desk{height:auto;min-height:100svh;padding:17px 12px;display:block}
+    .page{height:auto;min-height:0;width:100%;display:flex;flex-direction:column;padding:17px;gap:15px}
+    .tape{left:36%}.side{display:grid;grid-template-columns:115px 1fr;align-items:center;column-gap:13px}
+    .avatar{height:120px;grid-row:span 3}.avatar:before{width:90px;height:90px;top:15px}.avatar .face{font-size:60px}
+    .badge{font-size:12px;right:3px;bottom:3px;padding:2px 4px}
+    .name{font-size:30px}.status{font-size:11px}.littlelinks{grid-column:1/-1}
+    .middle,.right{display:flex;flex-direction:column;overflow:visible;padding-right:0}
+    .hello h2{font-size:24px}.projects{grid-template-columns:1fr 1fr}
+    .right{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+    .footer{grid-column:1/-1;margin-top:0}
+    .s1{top:10px;right:10px}
+  }
+  @media(max-width:390px){.projects,.right{grid-template-columns:1fr}.side{grid-template-columns:95px 1fr}.avatar{height:105px}.avatar .face{font-size:51px}.name{font-size:27px}}
+  @media(prefers-reduced-motion:no-preference){.avatar .face{animation:wiggle 4s ease-in-out infinite}@keyframes wiggle{0%,90%,100%{transform:rotate(-5deg)}94%{transform:rotate(4deg)}97%{transform:rotate(-8deg)}}}
+</style>
 </head>
 <body>
-   <header>
-       <h1>Welcome to My Website</h1>
-   </header>
-   <main>
-       <p>This is a basic HTML template.</p>
-   </main>
-   <footer>
-       <p>© 2023 My Website</p>
-   </footer>
-   <script src="script.js"></script>
+<div class="desk">
+  <main class="page" aria-label="Dia's personal page">
+    <div class="tape"></div><span class="sparkle s1">♡</span><span class="sparkle s2">✧</span><span class="sparkle s3">✿</span>
+    <aside class="side">
+      <div class="avatar" aria-label="Cute green frog illustration"><div class="face">🐸</div><div class="badge">that's me-ish!</div></div>
+      <div>
+        <div class="name">hi, i'm <span>dia!</span></div>
+        <div class="hand">linux, handhelds, too many tabs ☆</div>
+      </div>
+      <div class="status">♡ somewhere between "quick fix" and a full rewrite</div>
+      <nav class="littlelinks" aria-label="Links">
+        <a class="pill" href="https://github.com/Dia2809">github ↗</a>
+        <a class="pill" href="#projects">my projects ↓</a>
+        <a class="pill" href="#likes">things i like ↓</a>
+      </nav>
+    </aside>
+
+    <section class="middle">
+      <header class="hello">
+        <div class="scribble">welcome to my tiny corner of the internet!</div>
+        <h2>i break things, fix some of them, and write it down ♡</h2>
+        <p>i'm dia. i use linux, collect handhelds, and take software apart to see what happens. half the stuff here started as a "this should be easy" at 2am.</p>
+      </header>
+      <section class="section" id="projects">
+        <h2>✿ stuff i've been tinkering with</h2>
+        <div class="projects">
+          <article class="project"><span class="emoji">🎮</span><strong>PortMaster things</strong><small>Porting games to handhelds and fixing whatever breaks when they run.</small></article>
+          <article class="project"><span class="emoji">🕹️</span><strong>3DS stuff</strong><small>Homebrew, mods, and a console that won't stay retired.</small></article>
+          <article class="project"><span class="emoji">🕵️</span><strong>Hacking the government</strong><small>As a joke. No actual crimes, it's just a bit.</small></article>
+          <article class="project"><span class="emoji">🔧</span><strong>Odd experiments</strong><small>Linux, audio, reverse engineering, ideas that shouldn't leave the notes app.</small></article>
+        </div>
+      </section>
+      <section class="section">
+        <h2>☁️ a few things about me</h2>
+        <p>i learn by taking things apart. if it runs linux, i've probably tried to put something weird on it, and if it doesn't, i've probably tried anyway.</p>
+        <p>i like small, slightly pointless projects. the kind you start just to find out if it works.</p>
+        <p class="scribble">most of this is held together with tape. that's allowed. ♡</p>
+      </section>
+    </section>
+
+    <aside class="right">
+      <section class="mini pink" id="likes">
+        <h2>♡ things i like</h2>
+        <div class="tags">
+          <span class="tag">horror books</span><span class="tag">handhelds</span><span class="tag">Linux</span>
+          <span class="tag">cute green things</span><span class="tag">Nintendo consoles</span><span class="tag">nerdy stuff</span>
+        </div>
+      </section>
+      <section class="mini blue">
+        <h2>♫ on repeat</h2>
+        <div class="music">
+          <span>♡ <a href="https://open.spotify.com/artist/7s3OoIocX1gTOnEvCg2VV8" target="_blank" rel="noopener">McCafferty</a></span>
+          <span>♡ <a href="https://open.spotify.com/artist/0e86yPdC41PGRkLp2Q1Bph" target="_blank" rel="noopener">Mother Mother</a> / <a href="https://open.spotify.com/artist/5R5MLOQbI4lb7GHYioPqoN" target="_blank" rel="noopener">MSI</a></span>
+          <span>♡ <a href="https://open.spotify.com/artist/5ictveRyhWRs8Gt8Dvt1hS" target="_blank" rel="noopener">The Front Bottoms</a></span>
+          <span>♡ <a href="https://open.spotify.com/artist/2hR4h1Cao2ueuI7Cx9c7V8" target="_blank" rel="noopener">Cavetown</a></span>
+          <span>♡ <a href="https://open.spotify.com/artist/3uwAm6vQy7kWPS2bciKWx9" target="_blank" rel="noopener">girl in red</a></span>
+          <span>♡ <a href="https://open.spotify.com/artist/14apS9tKI3K30GK92BNQUL" target="_blank" rel="noopener">James Marriott</a></span>
+        </div>
+      </section>
+      <section class="mini">
+        <h2>🧃 my toolbox</h2>
+        <div class="tags"><span class="tag">Linux</span><span class="tag">Python</span><span class="tag">C / C++</span><span class="tag">C#</span><span class="tag">GitHub</span><span class="tag">terminal gremlin</span></div>
+      </section>
+      <section class="mini pink">
+        <h2>💌 guestbook energy</h2>
+        <p>you scrolled all the way down. here's a strawberry 🍓</p>
+        <p class="tiny">this page is a work in progress, just like me.</p>
+      </section>
+      <div class="footer">thanks for stopping by! ♡<br>✧ made by dia, not a corporation ✧</div>
+    </aside>
+  </main>
+</div>
 </body>
 </html>
